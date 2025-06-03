@@ -28,7 +28,7 @@
             right: 0;
             bottom: 0;
             background-color: rgba(0, 0, 0, 0.75); /* Dark semi-transparent overlay */
-             /* Puts it behind content but above background image */
+            z-index: -1; /* Puts it behind content but above background image */
         }
 
         /* Basic scroll-behavior for smooth scrolling when using anchor links */
@@ -65,6 +65,9 @@
                     </li>
 
                     <li><a href="miscellaneous.html" class="text-white hover:text-cyan-300 transition duration-300 font-semibold text-lg">Miscellaneous</a></li>
+                   
+                    <li><a href="myhandouts.html" class="text-white hover:text-cyan-300 transition duration-300 font-semibold text-lg">My Handouts</a></li>
+
                 </ul>
             </nav>
         </div>
