@@ -10,7 +10,8 @@
         body {
             font-family: 'Inter', sans-serif;
             /* Background Image & Overlay */
-            background-image: url('background.jpg'); /* <<< REPLACE THIS WITH YOUR IMAGE PATH/URL */
+            /* IMPORTANT: REPLACE 'path/to/your/background.jpg' with the actual path to your image */
+            background-image: url('path/to/your/background.jpg');
             background-attachment: fixed; /* Makes the background fixed while scrolling */
             background-size: cover; /* Covers the entire viewport */
             background-position: center; /* Centers the image */
@@ -39,9 +40,14 @@
         .dropdown:hover .dropdown-menu {
             display: block;
         }
+        /* Ensure the dropdown menu appears above other content */
+        .dropdown-menu {
+            z-index: 20; /* Tailwind's z-index-10 is often not enough, z-20 or z-30 is safer */
+        }
     </style>
 </head>
-<body class="text-gray-200"> <header class="bg-indigo-950 bg-opacity-80 backdrop-blur-sm text-white p-6 shadow-lg rounded-b-xl relative z-[100]">
+<body class="text-gray-200">
+    <header class="bg-indigo-950 bg-opacity-80 backdrop-blur-sm text-white p-6 shadow-lg rounded-b-xl relative z-[100]">
         <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
             <h1 class="text-4xl font-extrabold mb-4 md:mb-0 text-shadow-md text-cyan-300">MaseerTM</h1>
 
@@ -56,7 +62,7 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                             </svg>
                         </a>
-                        <ul class="dropdown-menu absolute hidden text-white pt-1 group-hover:block w-48 bg-indigo-900 bg-opacity-90 shadow-lg rounded-md z-10 border border-cyan-700">
+                        <ul class="dropdown-menu absolute hidden text-white pt-1 group-hover:block w-48 bg-indigo-900 bg-opacity-90 shadow-lg rounded-md z-20 border border-cyan-700">
                             <li><a href="geometry.html" class="block px-4 py-2 hover:bg-indigo-700 hover:text-cyan-200 rounded-t-md">Geometry</a></li>
                             <li><a href="algebra.html" class="block px-4 py-2 hover:bg-indigo-700 hover:text-cyan-200">Algebra</a></li>
                             <li><a href="number-theory.html" class="block px-4 py-2 hover:bg-indigo-700 hover:text-cyan-200">Number Theory</a></li>
@@ -65,67 +71,81 @@
                     </li>
 
                     <li><a href="miscellaneous.html" class="text-white hover:text-cyan-300 transition duration-300 font-semibold text-lg">Miscellaneous</a></li>
-                   
+                    
+                    <!-- New "My Handouts" link -->
                     <li><a href="myhandouts.html" class="text-white hover:text-cyan-300 transition duration-300 font-semibold text-lg">My Handouts</a></li>
-
                 </ul>
             </nav>
         </div>
     </header>
 
-    <main class="container mx-auto px-6 py-16 bg-gray-800 bg-opacity-70 shadow-lg rounded-xl mt-8 max-w-6xl">        <div class="relative z-10">
-            <h2 class="text-5xl font-bold text-cyan-300 mb-6 leading-tight">Your Ultimate Math Olympiad Resource Hub</h2>
-            <p class="text-gray-300 mb-8 max-w-3xl mx-auto">
-                Welcome, aspiring Olympiad students! This platform is dedicated to providing comprehensive resources, problem sets, and insights from my own journey to help you achieve your mathematical dreams.
-            </p>
-            </div>
-    </main>
-
-    <main class="container mx-auto px-6 py-16 bg-gray-800 bg-opacity-70 shadow-lg rounded-xl mt-8 max-w-6xl">
-        <h3 class="text-4xl font-bold text-center text-cyan-300 mb-12">Explore Key Math Olympiad Subjects</h3>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-
-            <div class="bg-indigo-900 bg-opacity-80 p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300 transform hover:-translate-y-2 border-l-4 border-cyan-500">
-                <h4 class="text-2xl font-bold text-cyan-400 mb-4">Geometry</h4>
-                <p class="text-gray-300 mb-6">
-                    Delve into the elegance of shapes, lines, and spaces. Master theorems, constructions, and problem-solving techniques for geometric challenges.
+    <main>
+        <!-- Hero Section: This was the first 'main' section, now it's a 'section' within 'main' -->
+        <section id="hero" class="relative py-20 px-6 text-center rounded-xl mx-4 md:mx-auto mt-8 max-w-6xl overflow-hidden bg-gray-800 bg-opacity-70 shadow-lg">
+            <div class="relative z-10">
+                <h2 class="text-5xl font-bold text-cyan-300 mb-6 leading-tight">Your Ultimate Math Olympiad Resource Hub</h2>
+                <p class="text-gray-300 mb-8 max-w-3xl mx-auto">
+                    Welcome, aspiring Olympiad students! This platform is dedicated to providing comprehensive resources, problem sets, and insights from my own journey to help you achieve your mathematical dreams.
                 </p>
-                <a href="geometry.html" class="inline-block bg-cyan-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-cyan-700 transition duration-300 shadow-md">Explore Geometry</a>
             </div>
+        </section>
 
-            <div class="bg-indigo-900 bg-opacity-80 p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300 transform hover:-translate-y-2 border-l-4 border-orange-500">
-                <h4 class="text-2xl font-bold text-orange-400 mb-4">Algebra</h4>
-                <p class="text-gray-300 mb-6">
-                    Conquer equations, inequalities, and functions. Develop strong algebraic manipulation skills crucial for complex problem-solving.
-                </p>
-                <a href="algebra.html" class="inline-block bg-cyan-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-cyan-700 transition duration-300 shadow-md">Explore Algebra</a>
+        <!-- Subjects Overview Section: This was the second 'main' section, now it's a 'section' within 'main' -->
+        <section id="subjects" class="container mx-auto px-6 py-16">
+            <h3 class="text-4xl font-bold text-center text-cyan-300 mb-12">Explore Key Math Olympiad Subjects</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <div class="bg-indigo-900 bg-opacity-80 p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300 transform hover:-translate-y-2 border-l-4 border-cyan-500">
+                    <h4 class="text-2xl font-bold text-cyan-400 mb-4">Geometry</h4>
+                    <p class="text-gray-300 mb-6">
+                        Delve into the elegance of shapes, lines, and spaces. Master theorems, constructions, and problem-solving techniques for geometric challenges.
+                    </p>
+                    <a href="geometry.html" class="inline-block bg-cyan-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-cyan-700 transition duration-300 shadow-md">Explore Geometry</a>
+                </div>
+
+                <div class="bg-indigo-900 bg-opacity-80 p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300 transform hover:-translate-y-2 border-l-4 border-orange-500">
+                    <h4 class="text-2xl font-bold text-orange-400 mb-4">Algebra</h4>
+                    <p class="text-gray-300 mb-6">
+                        Conquer equations, inequalities, and functions. Develop strong algebraic manipulation skills crucial for complex problem-solving.
+                    </p>
+                    <a href="algebra.html" class="inline-block bg-cyan-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-cyan-700 transition duration-300 shadow-md">Explore Algebra</a>
+                </div>
+
+                <div class="bg-indigo-900 bg-opacity-80 p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300 transform hover:-translate-y-2 border-l-4 border-red-500">
+                    <h4 class="text-2xl font-bold text-red-400 mb-4">Number Theory</h4>
+                    <p class="text-gray-300 mb-6">
+                        Uncover the fascinating properties of integers. Explore divisibility, primes, congruences, and Diophantine equations.
+                    </p>
+                    <a href="number-theory.html" class="inline-block bg-cyan-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-cyan-700 transition duration-300 shadow-md">Explore Number Theory</a>
+                </div>
+
+                <div class="bg-indigo-900 bg-opacity-80 p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300 transform hover:-translate-y-2 border-l-4 border-purple-500">
+                    <h4 class="text-2xl font-bold text-purple-400 mb-4">Combinatorics</h4>
+                    <p class="text-gray-300 mb-6">
+                        Master the art of counting and arrangement. Tackle permutation, combination, and probability problems with strategic thinking.
+                    </p>
+                    <a href="combinatorics.html" class="inline-block bg-cyan-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-cyan-700 transition duration-300 shadow-md">Explore Combinatorics</a>
+                </div>
+
+                <div class="bg-indigo-900 bg-opacity-80 p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300 transform hover:-translate-y-2 border-l-4 border-blue-500">
+                    <h4 class="text-2xl font-bold text-blue-400 mb-4">Miscellaneous</h4>
+                    <p class="text-gray-300 mb-6">
+                        A collection of diverse topics, general tips, and useful tools that don't fit neatly into the main categories but are vital for Olympiad success.
+                    </p>
+                    <a href="miscellaneous.html" class="inline-block bg-cyan-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-cyan-700 transition duration-300 shadow-md">View Miscellaneous</a>
+                </div>
+
+                <!-- New "My Handouts" Subject Card -->
+                <div class="bg-indigo-900 bg-opacity-80 p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300 transform hover:-translate-y-2 border-l-4 border-emerald-500">
+                    <h4 class="text-2xl font-bold text-emerald-400 mb-4">My Handouts</h4>
+                    <p class="text-gray-300 mb-6">
+                        Access my personally crafted handouts and problem sets, developed from my own Olympiad journey and tutoring experience.
+                    </p>
+                    <a href="myhandouts.html" class="inline-block bg-cyan-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-cyan-700 transition duration-300 shadow-md">View Handouts</a>
+                </div>
+
             </div>
-
-            <div class="bg-indigo-900 bg-opacity-80 p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300 transform hover:-translate-y-2 border-l-4 border-red-500">
-                <h4 class="text-2xl font-bold text-red-400 mb-4">Number Theory</h4>
-                <p class="text-gray-300 mb-6">
-                    Uncover the fascinating properties of integers. Explore divisibility, primes, congruences, and Diophantine equations.
-                </p>
-                <a href="number-theory.html" class="inline-block bg-cyan-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-cyan-700 transition duration-300 shadow-md">Explore Number Theory</a>
-            </div>
-
-            <div class="bg-indigo-900 bg-opacity-80 p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300 transform hover:-translate-y-2 border-l-4 border-purple-500">
-                <h4 class="text-2xl font-bold text-purple-400 mb-4">Combinatorics</h4>
-                <p class="text-gray-300 mb-6">
-                    Master the art of counting and arrangement. Tackle permutation, combination, and probability problems with strategic thinking.
-                </p>
-                <a href="combinatorics.html" class="inline-block bg-cyan-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-cyan-700 transition duration-300 shadow-md">Explore Combinatorics</a>
-            </div>
-
-            <div class="bg-indigo-900 bg-opacity-80 p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300 transform hover:-translate-y-2 border-l-4 border-blue-500">
-                <h4 class="text-2xl font-bold text-blue-400 mb-4">Miscellaneous</h4>
-                <p class="text-gray-300 mb-6">
-                    A collection of diverse topics, general tips, and useful tools that don't fit neatly into the main categories but are vital for Olympiad success.
-                </p>
-                <a href="miscellaneous.html" class="inline-block bg-cyan-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-cyan-700 transition duration-300 shadow-md">View Miscellaneous</a>
-            </div>
-
-        </div>
+        </section>
     </main>
 
     <footer class="bg-indigo-950 bg-opacity-80 text-white p-6 text-center mt-12 rounded-t-xl shadow-inner">
