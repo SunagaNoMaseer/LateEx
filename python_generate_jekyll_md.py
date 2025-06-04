@@ -27,15 +27,16 @@ def generate_md_files(subject_name, pdf_folder_path, md_collection_path):
             md_filename = os.path.join(md_collection_path, f"{md_filename_slug}.md")
 
             # Create a placeholder title and description
+            # These will be enclosed in quotes for YAML robustness
             # You will edit these manually later
             title = f"{subject_name} Resource: {pdf_name_without_ext.replace('-', ' ').title()}"
             description = f"A description for this {subject_name.lower()} resource."
 
-            # Jekyll Front Matter content
+            # Jekyll Front Matter content with robust quoting
             md_content = f"""---
-title: {title}
-description: {description}
-file_name: {filename}
+title: "{title}"
+description: "{description}"
+file_name: "{filename}"
 ---
 """
             # Write the Markdown file
@@ -74,3 +75,4 @@ if __name__ == "__main__":
     print("1. Manually review and refine the 'title' and 'description' in each .md file.")
     print("2. Ensure all your actual PDF files are correctly placed in their respective 'resources/subject-name/' folders.")
     print("3. Commit and push all changes (new .md files, updated PDFs) to your GitHub repository.")
+
