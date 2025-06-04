@@ -15,7 +15,7 @@
         body {
             font-family: 'Inter', sans-serif;
             /* Background Image & Overlay - Make sure to replace 'YOUR_IMAGE_URL_HERE' */
-            background-image: url('path/to/your/background.jpg'); /* <<< REPLACE THIS WITH YOUR IMAGE PATH/URL */
+            background-image: url('{{ site.baseurl }}/images/WhatsApp Image 2025-05-30 at 18.17.54_25949873.jpg'); /* <<< UPDATED PATH WITH site.baseurl */
             background-attachment: scroll; /* Ensures background scrolls with content */
             background-size: cover; /* Covers the entire viewport */
             background-position: center; /* Centers the image */
@@ -59,26 +59,26 @@
 
             <nav>
                 <ul class="flex flex-wrap justify-center space-x-6">
-                    <li><a href="index.html#hero" class="text-white hover:text-cyan-300 transition duration-300 font-semibold text-lg">Home</a></li>
+                    <li><a href="{{ site.baseurl }}/index.html#hero" class="text-white hover:text-cyan-300 transition duration-300 font-semibold text-lg">Home</a></li>
 
                     <li class="relative group dropdown">
-                        <a href="index.html#subjects" class="text-white hover:text-cyan-300 transition duration-300 font-semibold text-lg inline-flex items-center">
+                        <a href="{{ site.baseurl }}/index.html#subjects" class="text-white hover:text-cyan-300 transition duration-300 font-semibold text-lg inline-flex items-center">
                             Subjects
                             <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                             </svg>
                         </a>
                         <ul class="dropdown-menu absolute hidden text-white pt-1 group-hover:block w-48 bg-indigo-900 bg-opacity-90 shadow-lg rounded-md z-20 border border-cyan-700">
-                            <li><a href="geometry.html" class="block px-4 py-2 hover:bg-indigo-700 hover:text-cyan-200 rounded-t-md">Geometry</a></li>
-                            <li><a href="algebra.html" class="block px-4 py-2 hover:bg-indigo-700 hover:text-cyan-200">Algebra</a></li>
-                            <li><a href="number-theory.html" class="block px-4 py-2 hover:bg-indigo-700 hover:text-cyan-200">Number Theory</a></li>
-                            <li><a href="combinatorics.html" class="block px-4 py-2 hover:bg-indigo-700 hover:text-cyan-200">Combinatorics</a></li>
+                            <li><a href="{{ site.baseurl }}/geometry.html" class="block px-4 py-2 hover:bg-indigo-700 hover:text-cyan-200 rounded-t-md">Geometry</a></li>
+                            <li><a href="{{ site.baseurl }}/algebra.html" class="block px-4 py-2 hover:bg-indigo-700 hover:text-cyan-200">Algebra</a></li>
+                            <li><a href="{{ site.baseurl }}/number-theory.html" class="block px-4 py-2 hover:bg-indigo-700 hover:text-cyan-200">Number Theory</a></li>
+                            <li><a href="{{ site.baseurl }}/combinatorics.html" class="block px-4 py-2 hover:bg-indigo-700 hover:text-cyan-200">Combinatorics</a></li>
                         </ul>
                     </li>
 
-                    <li><a href="miscellaneous.html" class="text-white hover:text-cyan-300 transition duration-300 font-semibold text-lg">Miscellaneous</a></li>
+                    <li><a href="{{ site.baseurl }}/miscellaneous.html" class="text-white hover:text-cyan-300 transition duration-300 font-semibold text-lg">Miscellaneous</a></li>
                     
-                    <li><a href="myhandouts.html" class="text-white hover:text-cyan-300 transition duration-300 font-semibold text-lg">My Handouts</a></li>
+                    <li><a href="{{ site.baseurl }}/myhandouts.html" class="text-white hover:text-cyan-300 transition duration-300 font-semibold text-lg">My Handouts</a></li>
                 </ul>
             </nav>
         </div>
@@ -92,35 +92,15 @@
         </p>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <!-- Resource Card Example 1 -->
+            {% for resource in site.miscellaneous_resources %}
             <div class="bg-indigo-900 bg-opacity-80 p-6 rounded-xl shadow-md border-l-4 border-blue-500">
-                <h3 class="text-2xl font-bold text-blue-400 mb-2">General Problem-Solving Strategies</h3>
+                <h3 class="text-2xl font-bold text-blue-400 mb-2">{{ resource.title }}</h3>
                 <p class="text-gray-300 mb-4">
-                    A guide to common problem-solving approaches applicable across all Olympiad subjects, including working backwards, invariants, and extremal principle.
+                    {{ resource.description }}
                 </p>
-                <a href="resources/miscellaneous/problem-solving-strategies.pdf" target="_blank" class="inline-block bg-cyan-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-cyan-700 transition duration-300 shadow-md">Download Guide (PDF)</a>
+                <a href="{{ site.baseurl }}/resources/miscellaneous/{{ resource.file_name }}" target="_blank" class="inline-block bg-cyan-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-cyan-700 transition duration-300 shadow-md">Download (PDF)</a>
             </div>
-
-            <!-- Resource Card Example 2 -->
-            <div class="bg-indigo-900 bg-opacity-80 p-6 rounded-xl shadow-md border-l-4 border-blue-500">
-                <h3 class="text-2xl font-bold text-blue-400 mb-2">Recommended Online Tools & Software</h3>
-                <p class="text-gray-300 mb-4">
-                    A list of useful online calculators, graphing tools, programming environments, and software that can aid in your Olympiad preparation.
-                </p>
-                <a href="resources/miscellaneous/online-tools-list.pdf" target="_blank" class="inline-block bg-cyan-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-cyan-700 transition duration-300 shadow-md">View List (PDF)</a>
-            </div>
-
-            <!-- Resource Card Example 3 -->
-            <div class="bg-indigo-900 bg-opacity-80 p-6 rounded-xl shadow-md border-l-4 border-blue-500">
-                <h3 class="text-2xl font-bold text-blue-400 mb-2">Time Management & Study Techniques</h3>
-                <p class="text-gray-300 mb-4">
-                    Tips and strategies for effective time management, study habits, and maintaining motivation throughout your Olympiad journey.
-                </p>
-                <a href="resources/miscellaneous/study-techniques.pdf" target="_blank" class="inline-block bg-cyan-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-cyan-700 transition duration-300 shadow-md">Read Guide (PDF)</a>
-            </div>
-
-            <!-- Add more miscellaneous resource cards here following the pattern -->
-
+            {% endfor %}
         </div>
     </main>
 
