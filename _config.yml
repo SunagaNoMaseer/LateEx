@@ -1,0 +1,13 @@
+collections:
+  algebra_resources:
+    output: true
+  geometry_resources:
+    output: true
+  combinatorics_resources:
+    output: true
+  number_theory_resources:
+    output: true
+  miscellaneous_resources:
+    output: true
+  myhandouts_resources:
+    output: true
