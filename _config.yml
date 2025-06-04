@@ -11,3 +11,4 @@ collections:
     output: true
   myhandouts_resources:
     output: true
+baseurl: ""
