@@ -5,7 +5,7 @@ collections:
     output: true
   combinatorics_resources:
     output: true
-  "number-theory_resources":
+  number-theory_resources:
     output: true
   miscellaneous_resources:
     output: true
