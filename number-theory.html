@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Theory Resources - Olympiad Pathways</title>
+    <!--
+        Tailwind CSS CDN: This script loads the Tailwind CSS framework,
+        allowing you to use utility classes directly in your HTML for styling.
+        This means no separate CSS file is strictly needed for the styles used here.
+    -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles for the Inter font, which is a modern, readable font */
+        body {
+            font-family: 'Inter', sans-serif;
+            /* Background Image & Overlay - Make sure to replace 'YOUR_IMAGE_URL_HERE' */
+            background-image: url('path/to/your/background.jpg'); /* <<< REPLACE THIS WITH YOUR IMAGE PATH/URL */
+            background-attachment: scroll; /* Ensures background scrolls with content */
+            background-size: cover; /* Covers the entire viewport */
+            background-position: center; /* Centers the image */
+            background-repeat: no-repeat; /* Prevents tiling */
+            position: relative; /* Needed for the pseudo-element overlay */
+            min-height: 100vh; /* Ensures body takes full height */
+        }
+
+        /* Dark Overlay for Text Readability */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.75); /* Dark semi-transparent overlay */
+            z-index: -1; /* Puts it behind content but above background image */
+        }
+
+        /* Basic scroll-behavior for smooth scrolling when using anchor links */
+        html {
+            scroll-behavior: smooth;
+        }
+        /* Custom styles for the dropdown menu */
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+        /* Ensure the dropdown menu appears above other content */
+        .dropdown-menu {
+            z-index: 20; /* Tailwind's z-index-10 is often not enough, z-20 or z-30 is safer */
+        }
+    </style>
+</head>
+<body class="text-gray-200">
+
+    <!-- Header Section (Consistent with Homepage) -->
+    <header class="bg-indigo-950 bg-opacity-80 backdrop-blur-sm text-white p-6 shadow-lg rounded-b-xl relative z-[100]">
+        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
+            <h1 class="text-4xl font-extrabold mb-4 md:mb-0 text-shadow-md text-cyan-300">MaseerTM</h1>
+
+            <nav>
+                <ul class="flex flex-wrap justify-center space-x-6">
+                    <li><a href="index.html#hero" class="text-white hover:text-cyan-300 transition duration-300 font-semibold text-lg">Home</a></li>
+
+                    <li class="relative group dropdown">
+                        <a href="index.html#subjects" class="text-white hover:text-cyan-300 transition duration-300 font-semibold text-lg inline-flex items-center">
+                            Subjects
+                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </a>
+                        <ul class="dropdown-menu absolute hidden text-white pt-1 group-hover:block w-48 bg-indigo-900 bg-opacity-90 shadow-lg rounded-md z-20 border border-cyan-700">
+                            <li><a href="geometry.html" class="block px-4 py-2 hover:bg-indigo-700 hover:text-cyan-200 rounded-t-md">Geometry</a></li>
+                            <li><a href="algebra.html" class="block px-4 py-2 hover:bg-indigo-700 hover:text-cyan-200">Algebra</a></li>
+                            <li><a href="number-theory.html" class="block px-4 py-2 hover:bg-indigo-700 hover:text-cyan-200">Number Theory</a></li>
+                            <li><a href="combinatorics.html" class="block px-4 py-2 hover:bg-indigo-700 hover:text-cyan-200">Combinatorics</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="miscellaneous.html" class="text-white hover:text-cyan-300 transition duration-300 font-semibold text-lg">Miscellaneous</a></li>
+                    
+                    <li><a href="myhandouts.html" class="text-white hover:text-cyan-300 transition duration-300 font-semibold text-lg">My Handouts</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content Section for Number Theory -->
+    <main class="container mx-auto px-6 py-16 bg-gray-800 bg-opacity-70 shadow-lg rounded-xl mt-8 max-w-6xl">
+        <h2 class="text-4xl font-bold text-center text-red-400 mb-12">Number Theory Resources</h2>
+        <p class="text-lg text-gray-300 mb-8 text-center max-w-3xl mx-auto">
+            Explore the fascinating properties of integers, prime numbers, and divisibility. This section provides resources to deepen your understanding of number theory concepts crucial for Olympiad success.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Resource Card Example 1 -->
+            <div class="bg-indigo-900 bg-opacity-80 p-6 rounded-xl shadow-md border-l-4 border-red-500">
+                <h3 class="text-2xl font-bold text-red-400 mb-2">Number Theory Handout 1: Divisibility & Primes</h3>
+                <p class="text-gray-300 mb-4">
+                    An introductory guide to the fundamental concepts of divisibility, prime numbers, and prime factorization.
+                </p>
+                <a href="resources/number-theory/number-theory-handout-1.pdf" target="_blank" class="inline-block bg-cyan-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-cyan-700 transition duration-300 shadow-md">Download Handout (PDF)</a>
+            </div>
+
+            <!-- Resource Card Example 2 -->
+            <div class="bg-indigo-900 bg-opacity-80 p-6 rounded-xl shadow-md border-l-4 border-red-500">
+                <h3 class="text-2xl font-bold text-red-400 mb-2">Problem Set: Modular Arithmetic</h3>
+                <p class="text-gray-300 mb-4">
+                    Challenging problems focusing on congruences, modular inverses, and applications of Fermat's Little Theorem.
+                </p>
+                <a href="resources/number-theory/number-theory-problem-set-2.pdf" target="_blank" class="inline-block bg-cyan-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-cyan-700 transition duration-300 shadow-md">Download Problem Set (PDF)</a>
+            </div>
+
+            <!-- Resource Card Example 3 -->
+            <div class="bg-indigo-900 bg-opacity-80 p-6 rounded-xl shadow-md border-l-4 border-red-500">
+                <h3 class="text-2xl font-bold text-red-400 mb-2">Diophantine Equations Guide</h3>
+                <p class="text-gray-300 mb-4">
+                    A comprehensive guide to solving linear and non-linear Diophantine equations.
+                </p>
+                <a href="resources/number-theory/number-theory-guide-3.pdf" target="_blank" class="inline-block bg-cyan-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-cyan-700 transition duration-300 shadow-md">Download Guide (PDF)</a>
+            </div>
+
+            <!-- Add more number theory resource cards here following the pattern -->
+
+        </div>
+    </main>
+
+    <!-- Footer Section (Consistent with Homepage) -->
+    <footer class="bg-indigo-950 bg-opacity-80 text-white p-6 text-center mt-12 rounded-t-xl shadow-inner">
+        <div class="container mx-auto">
+            <p class="text-sm">&copy; 2025 Olympiad Pathways. All rights reserved.</p>
+            <p class="text-xs mt-2">Empowering the next generation of mathematical minds.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
